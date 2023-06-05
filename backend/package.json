@@ -1,5 +1,5 @@
 {
-  "name": "mern-todo-backend",
+  "name": "mern-task-manager-backend",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -7,12 +7,12 @@
     "start": "node app.js"
   },
   "keywords": [
-    "todo",
-    "todos"
+    "Task manager",
+    "Tasks"
   ],
   "author": "Devang",
   "license": "ISC",
-  "description": "The backend part of simple todo with user authentication",
+  "description": "The backend part",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",

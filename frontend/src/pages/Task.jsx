@@ -7,15 +7,15 @@ import useFetch from '../hooks/useFetch';
 import MainLayout from '../layouts/MainLayout';
 import validateManyFields from '../validations';
 
-const Todo = () => {
+const Task = () => {
 
   const authState = useSelector(state => state.authReducer);
   const navigate = useNavigate();
   const [fetchData, { loading }] = useFetch();
-  const { todoId } = useParams();
+  const { taskId } = useParams();
 
-  const mode = todoId === undefined ? "add" : "update";
-  const [todo, setTodo] = useState(null);
+  const mode = taskId === undefined ? "add" : "update";
+  const [task, setTask] = useState(null);
   const [formData, setFormData] = useState({
     description: ""
   });
@@ -23,19 +23,19 @@ const Todo = () => {
 
 
   useEffect(() => {
-    document.title = mode === "add" ? "Add To-Do" : "Update To-Do";
+    document.title = mode === "add" ? "Add task" : "Update Task";
   }, [mode]);
 
 
   useEffect(() => {
     if (mode === "update") {
-      const config = { url: `/todos/${todoId}`, method: "get", headers: { Authorization: authState.token } };
+      const config = { url: `/tasks/${taskId}`, method: "get", headers: { Authorization: authState.token } };
       fetchData(config, { showSuccessToast: false }).then((data) => {
-        setTodo(data.todo);
+        setTask(data.task);
         setFormData({ description: data.task.description });
       });
     }
-  }, [mode, authState, todoId, fetchData]);
+  }, [mode, authState, taskId, fetchData]);
 
 
 
@@ -48,13 +48,13 @@ const Todo = () => {
   const handleReset = e => {
     e.preventDefault();
     setFormData({
-      description: todo.description
+      description: task.description
     });
   }
 
   const handleSubmit = e => {
     e.preventDefault();
-    const errors = validateManyFields("To-Do", formData);
+    const errors = validateManyFields("task", formData);
     setFormErrors({});
 
     if (errors.length > 0) {
@@ -63,13 +63,13 @@ const Todo = () => {
     }
 
     if (mode === "add") {
-      const config = { url: "/todos", method: "post", data: formData, headers: { Authorization: authState.token } };
+      const config = { url: "/tasks", method: "post", data: formData, headers: { Authorization: authState.token } };
       fetchData(config).then(() => {
         navigate("/");
       });
     }
     else {
-      const config = { url: `/todos/${todoId}`, method: "put", data: formData, headers: { Authorization: authState.token } };
+      const config = { url: `/tasks/${taskId}`, method: "put", data: formData, headers: { Authorization: authState.token } };
       fetchData(config).then(() => {
         navigate("/");
       });
@@ -92,14 +92,14 @@ const Todo = () => {
             <Loader />
           ) : (
             <>
-              <h2 className='text-center mb-4'>{mode === "add" ? "Add New To-Do" : "Edit To-Do"}</h2>
+              <h2 className='text-center mb-4'>{mode === "add" ? "Add New Task" : "Edit Task"}</h2>
               <div className="mb-4">
                 <label htmlFor="description">Description</label>
                 <Textarea type="description" name="description" id="description" value={formData.description} placeholder="Write here.." onChange={handleChange} />
                 {fieldError("description")}
               </div>
 
-              <button className='bg-primary text-white px-4 py-2 font-medium hover:bg-primary-dark' onClick={handleSubmit}>{mode === "add" ? "Add To-Do" : "Update To-Do"}</button>
+              <button className='bg-primary text-white px-4 py-2 font-medium hover:bg-primary-dark' onClick={handleSubmit}>{mode === "add" ? "Add task" : "Update Task"}</button>
               <button className='ml-4 bg-red-500 text-white px-4 py-2 font-medium' onClick={() => navigate("/")}>Cancel</button>
               {mode === "update" && <button className='ml-4 bg-blue-500 text-white px-4 py-2 font-medium hover:bg-blue-600' onClick={handleReset}>Reset</button>}
             </>
@@ -110,4 +110,4 @@ const Todo = () => {
   )
 }
 
-export default Todo
+export default Task

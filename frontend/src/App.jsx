@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Todo from "./pages/Todo";
+import Task from "./pages/Task";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -27,8 +27,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={authState.isLoggedIn ? <Navigate to="/" /> : <Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/todos/add" element={authState.isLoggedIn ? <Todo /> : <Navigate to="/login" state={{ redirectUrl: "/todos/add" }} />} />
-          <Route path="/todos/:todoId" element={authState.isLoggedIn ? <Todo /> : <Navigate to="/login" state={{ redirectUrl: window.location.pathname }} />} />
+          <Route path="/tasks/add" element={authState.isLoggedIn ? <Task /> : <Navigate to="/login" state={{ redirectUrl: "/tasks/add" }} />} />
+          <Route path="/tasks/:taskId" element={authState.isLoggedIn ? <Task /> : <Navigate to="/login" state={{ redirectUrl: window.location.pathname }} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

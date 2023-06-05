@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const todoSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -15,5 +15,5 @@ const todoSchema = new mongoose.Schema({
 });
 
 
-const Todo = mongoose.model("Todo", todoSchema);
-module.exports = Todo;
+const Task = mongoose.model("Task", taskSchema);
+module.exports = Task;
