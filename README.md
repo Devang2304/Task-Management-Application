@@ -2,6 +2,12 @@
 
 A MERN application for basic tasks management.
 
+**LIVE LINK**[https://taskmanagementapp-c97a.onrender.com]
+
+#Video
+
+https://github.com/Devang2304/Task-Management-Application/assets/69463638/9c33a36a-9717-41f0-b389-848ea1352fc0
+
 
 ## Features
 
@@ -26,6 +32,43 @@ A MERN application for basic tasks management.
 - React
 - Redux
 - Mongodb
+
+## Dependencies
+
+Following are the major dependencies of the project:
+
+- axios
+- react
+- react-dom
+- react-redux
+- react-router-dom
+- react-toastify
+- redux
+- redux-thunk
+- bcrypt
+- cors
+- dotenv
+- express
+- jsonwebtoken
+- mongoose
+
+## Installation and Setup
+
+1. Install all the dependencies
+
+   ```sh
+   npm run install-all
+   ```
+
+2. Create a file named ".env" inside the backend folder. Add data from .env.example file and substitute your credentials there.
+
+3. Start the application
+
+   ```sh
+   npm run dev
+   ```
+
+4. Go to http://localhost:3000
 
 ## Backend API
 
