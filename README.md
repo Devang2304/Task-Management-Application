@@ -2,7 +2,7 @@
 
 A MERN application for basic tasks management.
 
-**LIVE LINK**[https://taskmanagementapp-c97a.onrender.com]
+**LIVE LINK**(https://taskmanagementapp-c97a.onrender.com)
 
 #Video
 
