@@ -1,10 +1,10 @@
-# MERN Task Manager
-
+# MERN Task-Management-Application
+Task given during the applying for MCS internship. Click on the live link to see the demo. Thanks for visiting !<br>
 A MERN application for basic tasks management.
 
-**LIVE LINK**(https://taskmanagementapp-c97a.onrender.com)
+[**LIVE LINK**](https://taskmanagementapp-c97a.onrender.com)
 
-#Video
+## Video
 
 https://github.com/Devang2304/Task-Management-Application/assets/69463638/9c33a36a-9717-41f0-b389-848ea1352fc0
 
